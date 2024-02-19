@@ -9,15 +9,14 @@ object AppMensaje {
 
     fun enviarMensaje(vista: View, mensaje: String, tipoMensaje: TipoMensaje){
         val snackBar = Snackbar.make(vista, mensaje, Snackbar.LENGTH_LONG)
-        val snackBarView: View = snackBar.view
         if(tipoMensaje == TipoMensaje.ERROR){
-            snackBarView.setBackgroundColor(
-                ContextCompat.getColor(MiApp.instance,
-                    R.color.advertenciaColor))
+            snackBar.setBackgroundTint(ContextCompat.getColor(MiApp.instance,
+                R.color.errorColor))
         }else {
-            snackBarView.setBackgroundColor(
+            snackBar.setBackgroundTint(
                 ContextCompat.getColor(MiApp.instance,
-                    R.color.exitoColor))
+                    R.color.exitoColor)
+            )
         }
         snackBar.show()
     }
